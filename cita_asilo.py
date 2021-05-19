@@ -6,54 +6,54 @@ from time import sleep
 class CitaAsilo(unittest.TestCase):
     
     def setUp(self):
-        self.driver= webdriver.Chrome(executable_path='./chromedriver')
-        driver= self.driver
+        self.driver = webdriver.Chrome(executable_path='./chromedriver')
+        driver = self.driver
         driver.implicitly_wait(30) 
         driver.maximize_window()   
         driver.get('https://sede.administracionespublicas.gob.es/icpco/acOpcDirect')
    
     def test_search_cita(self):
-        driver= self.driver
-        cockie_kill= driver.find_element_by_id('cookie_action_close_header')
+        driver = self.driver
+        cockie_kill = driver.find_element_by_id('cookie_action_close_header')
         cockie_kill.click()
-        first_button= driver.find_element_by_id('btnSubmit')
+        first_button = driver.find_element_by_id('btnSubmit')
         first_button.click()
         #sleep(1)
-        location_select=driver.find_element_by_id('form')
+        location_select = driver.find_element_by_id('form')
         location_select.click()
-        driver=self.driver
-        malaga= driver.find_element_by_xpath('//*[@id="form"]/option[35]')
+        driver = self.driver
+        malaga = driver.find_element_by_xpath('//*[@id="form"]/option[35]')
         malaga.click()
         #sleep(1)
-        submit_one= driver.find_element_by_id('btnAceptar')
+        submit_one = driver.find_element_by_id('btnAceptar')
         submit_one.click()
         #sleep(1)
-        tramites_group=driver.find_element_by_id('tramiteGrupo[0]')
+        tramites_group = driver.find_element_by_id('tramiteGrupo[0]')
         #tramites_group.click()
-        tramite_asilo= driver.find_element_by_xpath('//*[@id="tramiteGrupo[0]"]/option[7]')
+        tramite_asilo = driver.find_element_by_xpath('//*[@id="tramiteGrupo[0]"]/option[7]')
         tramite_asilo.click()
         sleep(1)
         
-        action= ActionChains(driver)
-        submit_two= driver.find_element_by_xpath('/html/body/div[1]/div/main/div/div/section/div[2]/form[1]/div[4]/input[1]')
+        action = ActionChains(driver)
+        submit_two = driver.find_element_by_xpath('/html/body/div[1]/div/main/div/div/section/div[2]/form[1]/div[4]/input[1]')
         action.move_to_element(submit_two)
         action.click(submit_two)
         action.perform()
         sleep(1)
-        enter_button= driver.find_element_by_id('btnEntrar')
+        enter_button = driver.find_element_by_id('btnEntrar')
         enter_button.click()
         
-        passport_selection= driver.find_element_by_id('rdbTipoDocPas')
+        passport_selection = driver.find_element_by_id('rdbTipoDocPas')
         passport_selection.click()
-        passport_input= driver.find_element_by_id('txtIdCitado')
+        passport_input = driver.find_element_by_id('txtIdCitado')
         passport_input.click()
-        passport_input.send_keys('093098487')
+        passport_input.send_keys('000000000')
         sleep(1)
         
-        action= ActionChains(driver)
-        name_input= driver.find_element_by_xpath('/html/body/div[1]/div/main/div/div/section/div[2]/form/div/div/div[1]/div[3]/div/div/div/div/input[1]')
+        action = ActionChains(driver)
+        name_input = driver.find_element_by_xpath('/html/body/div[1]/div/main/div/div/section/div[2]/form/div/div/div[1]/div[3]/div/div/div/div/input[1]')
         action.move_to_element(name_input).click(name_input).perform()
-        name_input.send_keys('JOSE VILLALOBOS')
+        name_input.send_keys('NOMBRE APELLIDO')
         
         action= ActionChains(driver)
         birthday_input= driver.find_element_by_id('txtAnnoCitado')
@@ -77,6 +77,7 @@ class CitaAsilo(unittest.TestCase):
         cita= driver.find_element_by_xpath('/html/body/div[1]/div/main/div/div/section/div[2]/form/div/div/div[3]/input[1]')
         cita.click()
         sleep(999)   
+        
     def tearDown(self):
         self.driver.close()
         
