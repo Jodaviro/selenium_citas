@@ -4,7 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
 
 class CitaAsilo(unittest.TestCase):
-    
+    """confifuracion del driver con google chrome"""
     def setUp(self):
         self.driver = webdriver.Chrome(executable_path='./chromedriver')
         driver = self.driver
@@ -74,10 +74,12 @@ class CitaAsilo(unittest.TestCase):
         action.click(submit_three).perform()
         sleep(1)
         
-        cita= driver.find_element_by_xpath('/html/body/div[1]/div/main/div/div/section/div[2]/form/div/div/div[3]/input[1]')
+        #Boton de solicitar citas. Sino hay citas selenium se cier
+        cita= driver.find_element_by_xpath('/html/body/div[1]/div/main/div/div/section/div[2]/form/div/div/div[2]/input[1]') 
         cita.click()
         sleep(999)   
-        
+  
+    
     def tearDown(self):
         self.driver.close()
         
