@@ -6,4 +6,4 @@ Para ello cree este scrip que funciona con Selenium Web Driver que hace la tarea
 Por motivos de privacidad removí mis datos personales del script.
 
 Requiere tener instalado google chrome y la descarga del driver [Webdriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads)
-El driver debe estar en el mismo directorio donde se encuentre el archivo cita_asilo.py
+El driver descargado debe estar en el mismo directorio donde se encuentre el archivo cita_asilo.py
