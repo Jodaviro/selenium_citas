@@ -1,7 +1,0 @@
-chromedriver
-**/__pycache__
-script.sql
-.DS_Store
-.Profile 1
-.vscode/
-env
